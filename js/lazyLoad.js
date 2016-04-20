@@ -1,33 +1,71 @@
 ;(function() {
-  var scrollTop,
-      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', // 确定窗口变化或是移动端横竖屏
+
+  var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', // 确定窗口变化或是移动端横竖屏
       imgArray = document.getElementsByTagName('img'); // 获取页面图片
+
+  // 获取浏览器可视区域
+  function getViewVisibleZone() {
+    return {
+      top : document.documentElement.scrollTop||document.body.scrollTop,
+      left : document.documentElement.scrollLeft||document.body.scrollLeft,
+      width : document.documentElement.clientWidth,
+      height : document.documentElement.clientHeight
+    };
+  }
+
+  // 获取待加载资源的区域
+  function getResourceZone(obj){
+    var left = 0,
+        top = 0;
+    // while(obj.offsetParent){
+    //   left += obj.offsetLeft;
+    //   top += obj.offsetTop;
+    //   obj = obj.offsetParent;
+    // }
+    left = obj.offsetLeft;
+    top = obj.offsetTop;
+    return {
+      left : left,
+      top : top,
+      width : obj.offsetWidth,
+      height : obj.offsetHeight
+    };
+  }
+
+  // 判断待加载资源是否出现在可视区域
+  function isContains(visibleZone,resourceZone){
+
+    var visibleW = visibleZone.left + visibleZone.width/2,
+        resourcew = resourceZone.left + resourceZone.width/2,
+        visibleH = visibleZone.top + visibleZone.height/2,
+        resourceH = resourceZone.top + resourceZone.height/2;
+
+    var wid = (visibleZone.width + resourceZone.width)/2,
+        hei = (visibleZone.height + resourceZone.height)/2;
+
+    return Math.abs(visibleW - resourcew) < wid && Math.abs(visibleH - resourceH) < hei;
+  }
+
   function winScroll(e){
-    scrollTop = window.pageYOffset ? window.pageYOffset : document.body.scrollTop;
-    for(var i = 0, domImg; domImg = imgArray[i++];) {
-      if(domImg.offsetTop <= getViewSizeWithScrollbar().height + scrollTop) {
-          domImg.setAttribute('src',domImg.getAttribute('data-src'));
+    var visibleZone = getViewVisibleZone(),
+        resourceZone;
+
+    for(var i = 0, len = imgArray.length; i < len; i++) {
+
+      if(imgArray[i]) {
+
+        resourceZone = getResourceZone(imgArray[i]);
+
+        if( isContains(visibleZone,resourceZone) ) {
+
+          imgArray[i].src = imgArray[i].getAttribute("data-src");
+
+          delete imgArray[i];
+        }
       }
     }
   }
-  function getViewSizeWithScrollbar(){ //包含滚动条
-    if(window.innerWidth){
-      return {
-        width : window.innerWidth,
-        height: window.innerHeight
-      }
-    } else if (document.documentElement.offsetWidth == document.documentElement.clientWidth){
-      return {
-        width : document.documentElement.offsetWidth,
-        height: document.documentElement.offsetHeight
-      }
-    } else {
-      return {
-        width : document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight
-      }
-    }
-  }
+
   document.addEventListener('scroll', winScroll, false); // 监听滚动事件
   window.addEventListener(resizeEvt, winScroll, false); // 监听窗口变化
 })();
