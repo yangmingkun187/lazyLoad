@@ -1,0 +1,19 @@
+{
+  "name": "lazyLoad",
+  "version": "1.0.0",
+  "description": "web img lazy load",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangmingkun187/lazyLoad.git"
+  },
+  "author": "jason yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangmingkun187/lazyLoad/issues"
+  },
+  "homepage": "https://github.com/yangmingkun187/lazyLoad#readme"
+}
