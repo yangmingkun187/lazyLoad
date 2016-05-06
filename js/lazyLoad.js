@@ -53,7 +53,7 @@
 
       if( isContains(visibleZone,resourceZone) ) {
 
-        bgImg.style.background = bgImg.style.background.replace(/\([^\)]*\)/g,'('+img.getAttribute("data-src")+')');
+        bgImg.style.background = bgImg.style.background.replace(/\([^\)]*\)/g,'('+bgImg.getAttribute("data-src")+')');
 
         delete imagesObj.backgroundImg[i];
       }
