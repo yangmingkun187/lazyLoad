@@ -1,8 +1,14 @@
 ;(function() {
 
-  var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', // 确定窗口变化或是移动端横竖屏
-      imgArray = document.getElementsByTagName('img'), // 获取页面图片
-      backgroundImgArray = document.getElementsByClassName('lazyLoad').style.background;
+  var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'; // 确定窗口变化或是移动端横竖屏
+
+  // 获取img
+  function getImages() {
+    return {
+      img: document.getElementsByTagName('img'),
+      backgroundImg: document.getElementsByClassName('lazyLoad')
+    }
+  }
   // 获取浏览器可视区域
   function getViewVisibleZone() {
     return {
@@ -36,23 +42,32 @@
 
     return Math.abs(visibleW - resourceW) < wid && Math.abs(visibleH - resourceH) < hei;
   }
-
+  var imagesObj = getImages();
   function winScroll(e){
     var visibleZone = getViewVisibleZone(),
         resourceZone;
 
-    for(var i = 0, len = imgArray.length; i < len; i++) {
+    for(var i = 0, bgImg; bgImg = imagesObj.backgroundImg[i++];) {
 
-      if(imgArray[i]) {
+      resourceZone = getResourceZone(bgImg);
 
-        resourceZone = getResourceZone(imgArray[i]);
+      if( isContains(visibleZone,resourceZone) ) {
 
-        if( isContains(visibleZone,resourceZone) ) {
+        bgImg.style.background = bgImg.style.background.replace(/\([^\)]*\)/g,'('+img.getAttribute("data-src")+')');
 
-          imgArray[i].src = imgArray[i].getAttribute("data-src");
+        delete imagesObj.backgroundImg[i];
+      }
+    }
 
-          delete imgArray[i];
-        }
+    for(var j = 0, img; img = imagesObj.img[j++];) {
+
+      resourceZone = getResourceZone(img);
+
+      if( isContains(visibleZone,resourceZone) ) {
+
+        img.src = img.getAttribute("data-src");
+
+        delete imagesObj.img[j];
       }
     }
   }
