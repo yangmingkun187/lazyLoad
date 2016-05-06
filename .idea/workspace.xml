@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d630e182-59d0-464b-9a38-696148e258b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/lazyLoad.js" afterPath="$PROJECT_DIR$/js/lazyLoad.js" />
-    </list>
+    <list default="true" id="d630e182-59d0-464b-9a38-696148e258b0" name="Default" comment="" />
     <ignored path="lazyLoad.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -147,12 +145,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1462523141043</updated>
-      <workItem from="1462523143923" duration="4024000" />
+      <workItem from="1462523143923" duration="4166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4024000" />
+    <option name="totallyTimeSpent" value="4166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="63" width="1920" height="1001" extended-state="0" />
