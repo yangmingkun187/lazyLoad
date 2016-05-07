@@ -71,7 +71,7 @@
       }
     }
   }
-
+  winScroll();
   document.addEventListener('scroll', winScroll, false); // 监听滚动事件
   window.addEventListener(resizeEvt, winScroll, false); // 监听窗口变化
 })();
