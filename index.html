@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>lazyLoad</title>
-  <style>
-    *{
-        margin:0;
-        padding:0;
-    }
-    img{
-        width:100%;
-        border:none;
-    }
-    .lazyLoad{
-        width: 300px;
-        height: 500px;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>lazyLoad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 100%;
+            border: none;
+            min-height: 200px;
+        }
+
+        div {
+            width: 436px;
+            height: 500px;
+        }
+
+        .lazyLoad {
+            width: 300px;
+            height: 500px;
+        }
+    </style>
 </head>
 <body>
-    <img data-src="http://images.simpletour.com/simpletour/images/web_hotDestination/47d6704e9db743e770e465d501bcdfbd.png" src="http://images.simpletour.com/simpletour/images/web_hotDestination/47d6704e9db743e770e465d501bcdfbd.png" alt="1">
     <div>
-      <img data-src="http://images.simpletour.com/simpletour/images/web_hotDestination/bba3653bba78135b345541925dc2ace6.png" src="http://images.simpletour.com/simpletour/images/web_hotDestination/47d6704e9db743e770e465d501bcdfbd.png" alt="2">
+        <img data-src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/SaJtWxJvAb2Gvlar1QAE7BNMMXVYq4Va_1599467765061.jpg"
+             src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/SaJtWxJvAb2Gvlar1QAE7BNMMXVYq4Va_1599467765061.jpg?x-oss-process=style/AvatorCompress"
+             alt="1">
     </div>
     <div>
-      <div>
-        <img data-src="http://images.simpletour.com/simpletour/images/web_hotDestination/f0a53607df2b5db4a438e45dc0080aae.png" src="http://images.simpletour.com/simpletour/images/web_hotDestination/47d6704e9db743e770e465d501bcdfbd.png" alt="3">
-      </div>
+        <img data-src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/om1wNd1aeRtgTDbEudlnJpwWvd7RYwyY_1599467904561.jpg"
+             src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/om1wNd1aeRtgTDbEudlnJpwWvd7RYwyY_1599467904561.jpg?x-oss-process=style/AvatorCompress"
+             alt="2">
     </div>
-    <img data-src="http://images.simpletour.com/simpletour/images/web_hotDestination/eca5de50d0424ad3f9010a8b7ae79b2b.png" src="http://images.simpletour.com/simpletour/images/web_hotDestination/47d6704e9db743e770e465d501bcdfbd.png" alt="4">
-    <div class="lazyLoad" style="background: url(http://images.simpletour.com/simpletour/images/web_hotDestination/47d6704e9db743e770e465d501bcdfbd.png) no-repeat center" data-src="http://images.simpletour.com/simpletour/images/web_hotDestination/60fff2e98f0d3504996c0ec710c438f0.png"></div>
-<script type='text/javascript' src='./index.min.js'></script>
+    <div>
+        <img data-src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/WiSS8vjOUojLnJqDGY1o5qagGiWRd1W2_1577325386797.jpg"
+             src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/WiSS8vjOUojLnJqDGY1o5qagGiWRd1W2_1577325386797.jpg?x-oss-process=style/AvatorCompress"
+             alt="3">
+    </div>
+    <div>
+        <img data-src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/cCA34g415MzBX5j44fnpYGUfvUPe8jrY_1555490923574.jpg"
+             src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/cCA34g415MzBX5j44fnpYGUfvUPe8jrY_1555490923574.jpg?x-oss-process=style/AvatorCompress"
+             alt="4">
+    </div>
+    <div class="lazyLoad"
+         style="background: url(https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/KoeSYfbuAtyPjGEmAanzONacCKTRIhAi_1554028392794.png?x-oss-process=style/AvatorCompress) no-repeat center"
+         data-src="https://cis-images-dev.oss-cn-shanghai.aliyuncs.com/headimg_dev/KoeSYfbuAtyPjGEmAanzONacCKTRIhAi_1554028392794.png"></div>
+    <script type='text/javascript' src='./index.js'></script>
 </body>
 </html>

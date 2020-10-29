@@ -52,10 +52,11 @@
       resourceZone = getResourceZone(bgImg);
 
       if( isContains(visibleZone,resourceZone) ) {
-
-        bgImg.style.background = bgImg.style.background.replace(/\([^\)]*\)/g,'('+bgImg.getAttribute("data-src")+')');
-
-        delete imagesObj.backgroundImg[i];
+        var backgroundStr = bgImg.style.background.replace(/\([^\)]*\)/g,'('+bgImg.getAttribute("data-src")+')');
+        if(bgImg.style.background !== backgroundStr) {
+          bgImg.style.background = bgImg.style.background.replace(/\([^\)]*\)/g,'('+bgImg.getAttribute("data-src")+')');
+          delete imagesObj.backgroundImg[i];
+        }
       }
     }
 
@@ -64,10 +65,11 @@
       resourceZone = getResourceZone(img);
 
       if( isContains(visibleZone,resourceZone) ) {
-
-        img.src = img.getAttribute("data-src");
-
-        delete imagesObj.img[j];
+        var dateSrc = img.getAttribute("data-src");
+        if(img.src !== dateSrc) {
+          img.src = img.getAttribute("data-src");
+          delete imagesObj.img[j];
+        }
       }
     }
   }
