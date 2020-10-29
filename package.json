@@ -1,8 +1,8 @@
 {
-  "name": "lazyload-image",
-  "version": "1.0.0",
-  "description": "web img lazy load",
-  "main": "index.html",
+  "name": "lazy-load-image",
+  "version": "1.0.1",
+  "description": "web image lazy load",
+  "main": "index.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
