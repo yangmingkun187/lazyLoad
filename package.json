@@ -1,5 +1,5 @@
 {
-  "name": "lazyLoad",
+  "name": "lazyload-image",
   "version": "1.0.0",
   "description": "web img lazy load",
   "main": "index.html",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/yangmingkun187/lazyLoad/issues"
   },
-  "homepage": "https://github.com/yangmingkun187/lazyLoad#readme"
+  "homepage": "https://github.com/yangmingkun187/lazyLoad#readme",
+  "keywords": [
+    "image",
+    "lazyload"
+  ]
 }
